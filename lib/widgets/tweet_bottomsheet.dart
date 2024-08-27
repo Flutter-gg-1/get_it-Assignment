@@ -10,6 +10,7 @@ class TweetBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController controller = TextEditingController();
+    bool noTweets = locator.get<TweetData>().tweets.isEmpty;
     return Padding(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -27,6 +28,7 @@ class TweetBottomSheet extends StatelessWidget {
               color: const Color(0xffE7ECF0),
               child: TextField(
                 controller: controller,
+                showCursor: true,
                 decoration: const InputDecoration(
                   hintText: 'What is happening?',
                   hintStyle: TextStyle(fontSize: 16, color: Color(0xff687684)),
@@ -34,8 +36,10 @@ class TweetBottomSheet extends StatelessWidget {
                 ),
                 onSubmitted: (value) {
                   if (controller.text.isNotEmpty) {
-                    locator.get<TweetData>().tweets.add(Tweet(
-                        id: locator.get<TweetData>().tweets.length + 1,
+                    locator.get<TweetData>().addNewTweet(Tweet(
+                        id: noTweets
+                            ? 1
+                            : locator.get<TweetData>().tweets.last.id + 1,
                         content: value));
                     Navigator.pop(context, true);
                   } else {

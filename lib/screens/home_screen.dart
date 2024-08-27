@@ -35,7 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const Divider(),
             ...locator.get<TweetData>().tweets.map((tweet) {
-              return TweetCard(tweet: tweet);
+              return TweetCard(
+                tweet: tweet,
+                onDelete: () {
+                  locator.get<TweetData>().deleteTweet(tweet);
+                  setState(() {});
+                },
+              );
             })
           ],
         ),
