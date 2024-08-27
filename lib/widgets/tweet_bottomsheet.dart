@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_app/data/tweet_data.dart';
 import 'package:twitter_app/helper/extensions/screen.dart';
+import 'package:twitter_app/helper/get_it.dart';
+import 'package:twitter_app/models/tweet.dart';
 
 class TweetBottomSheet extends StatelessWidget {
   const TweetBottomSheet({super.key});
@@ -22,7 +25,7 @@ class TweetBottomSheet extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 40),
               padding: const EdgeInsets.symmetric(horizontal: 12),
               color: const Color(0xffE7ECF0),
-              child:  TextField(
+              child: TextField(
                 controller: controller,
                 decoration: const InputDecoration(
                   hintText: 'What is happening?',
@@ -30,8 +33,22 @@ class TweetBottomSheet extends StatelessWidget {
                   border: UnderlineInputBorder(borderSide: BorderSide.none),
                 ),
                 onSubmitted: (value) {
-                  // submit Tweet
-                  Navigator.pop(context,true);
+                  if (controller.text.isNotEmpty) {
+                    locator.get<TweetData>().tweets.add(Tweet(
+                        id: locator.get<TweetData>().tweets.length + 1,
+                        content: value));
+                    Navigator.pop(context, true);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text(
+                        'Cannot Tweet nothing!!\nWhat is happening?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ));
+                  }
                 },
               ),
             ),

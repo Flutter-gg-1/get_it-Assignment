@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:twitter_app/helper/extensions/screen.dart';
+import 'package:twitter_app/helper/get_it.dart';
 import 'package:twitter_app/widgets/tweet_bottomsheet.dart';
+import 'package:twitter_app/widgets/tweet_card.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../data/tweet_data.dart';
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +30,15 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const Column(
-        children: [Divider()],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Divider(),
+            ...locator.get<TweetData>().tweets.map((tweet) {
+              return TweetCard(tweet: tweet);
+            })
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xff4C9EEB),
@@ -35,7 +50,11 @@ class HomeScreen extends StatelessWidget {
               context: context,
               builder: (context) {
                 return const TweetBottomSheet();
-              });
+              }).then((value) {
+            if (value == true) {
+              setState(() {});
+            }
+          });
         },
         child: Image.asset(
           'assets/images/add.png',
