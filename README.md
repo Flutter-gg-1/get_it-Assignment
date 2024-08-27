@@ -1,13 +1,16 @@
-# get_it Assignment
+# learn_get_it
 
-[Desgin in figma:](https://www.figma.com/design/aWCEupjtCF8SFRjcoIswdZ/get_it-assignment?node-id=0-1&t=CafZwovrSmT1CtSp-1)
+A new Flutter project.
 
-## Key Features:
-1. Add tweets: You can add tweet to the list. This tweet is saved locally using GetStorage.
-2. Remove tweets: You can delete tweet from the list. The app updates the local storage to reflect these changes.
+## Getting Started
 
-## Deadline
-- **Submission Deadline**: 29 August, 9:59 AM
+This project is a starting point for a Flutter application.
 
-Good luck 🚀
-and happy coding! 🧑‍💻
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
