@@ -13,11 +13,36 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return 
+    DefaultTabController(
       length: 1,
       child: Scaffold(
         floatingActionButton: AddTweatButton(
-          onPressed: () {},
+          onPressed: () {
+            showBottomSheet(
+              context: context,
+              builder: (context) {
+                return SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        const Text('BottomSheet'),
+                        ElevatedButton(
+                          child: const Text('Close'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
         ),
         appBar: AppBar(
           bottom: const TabBar(
