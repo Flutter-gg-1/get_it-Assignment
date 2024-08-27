@@ -15,6 +15,10 @@ class TweetData {
     saveTweet();
   }
 
+  deleteTweet(TweetModel tweetData) async {
+    allTweet.remove(tweetData);
+  }
+
   saveTweet() async {
     List<Map<String, dynamic>> tweetJson = [];
     for (var element in allTweet) {

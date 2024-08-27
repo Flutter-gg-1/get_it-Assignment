@@ -33,7 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
         verticalDirection: VerticalDirection.up,
         children: GetIt.I.get<TweetData>().allTweet.map((e) {
-          return CustomTweet(txt: e.tweet);
+          return CustomTweet(
+            txt: e.tweet,
+            onPressed: () {
+              GetIt.I.get<TweetData>().deleteTweet(e);
+              setState(() {});
+            },
+          );
         }).toList(),
       )),
       floatingActionButton: FloatingActionButton(
@@ -61,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 TweetModel(id: id++, tweet: _controller.text),
                               );
                           setState(() {});
+                          _controller.clear();
                           Navigator.of(context).pop();
                         },
                         child: Row(
@@ -86,11 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
           }
         },
         backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         child: Image.asset(
           "assets/icons/add.png",
           width: 20,
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       ),
     );
   }
