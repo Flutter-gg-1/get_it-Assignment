@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:twitter/widget/button/add_tweat_button.dart';
 import 'package:twitter/widget/message.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,12 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(
       length: 1,
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xff4C9EEB),
-          enableFeedback: true,
-          shape: const CircleBorder(),
+        floatingActionButton: AddTweatButton(
           onPressed: () {},
-          child: const FaIcon(color: Colors.white, FontAwesomeIcons.plus),
         ),
         appBar: AppBar(
           bottom: const TabBar(
