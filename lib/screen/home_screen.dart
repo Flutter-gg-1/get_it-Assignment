@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:twitter/helper/screen.dart';
+import 'package:twitter/widget/message.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,31 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(
           child: ListView(
             shrinkWrap: true,
-            children: [
-              //convert to custom widget
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: context.getWidth(value: .9),
-                          child: const Center(child: Text("Hello X")),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const FaIcon(
-                                color: Colors.red, FontAwesomeIcons.trash),
-                          ),
-                        )
-                      ],
-                    ),
-                    const Divider(),
-                  ],
-                ),
+            children: const [
+              Message(
+                message: "Hello X",
               )
             ],
           ),
