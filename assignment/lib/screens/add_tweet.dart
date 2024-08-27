@@ -1,17 +1,26 @@
+import 'package:assignment/data_layer/tweet_data.dart';
+import 'package:assignment/helper/extensions/nav.dart';
+import 'package:assignment/models/tweet_model.dart';
 import 'package:assignment/widgets/buttons/custom_button.dart';
 import 'package:assignment/widgets/fields/custom_field.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-class AddTweet extends StatelessWidget {
+class AddTweet extends StatefulWidget {
   const AddTweet({super.key});
 
   @override
+  State<AddTweet> createState() => _AddTweetState();
+}
+
+class _AddTweetState extends State<AddTweet> {
+  @override
   Widget build(BuildContext context) {
+    TextEditingController tweetController = TextEditingController();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          automaticallyImplyLeading: false,
           toolbarHeight: 100,
           shape: const Border.fromBorderSide(BorderSide(
             color: Color.fromARGB(94, 158, 158, 158),
@@ -23,17 +32,31 @@ class AddTweet extends StatelessWidget {
             scale: 11,
           ),
         ),
-        body: const Padding(
-          padding: EdgeInsets.only(
+        body: Padding(
+          padding: const EdgeInsets.only(
             bottom: 50,
           ),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                CustomField(hint: "What is happening?"),
-                SizedBox(height: 30),
-                CustomButton(label: "Cancel")
+                CustomField(
+                  hint: "What is happening?",
+                  controller: tweetController,
+                  onSubmitted: (p0) {
+                    TweetModel newTweet =
+                        TweetModel(tweet: tweetController.text);
+                    GetIt.I.get<TweetData>().addTweet(newTweet);
+                    context.goBack(true);
+                  },
+                ),
+                const SizedBox(height: 30),
+                CustomButton(
+                  label: "Cancel",
+                  onPressed: () {
+                    context.goBack(true);
+                  },
+                )
               ],
             ),
           ),

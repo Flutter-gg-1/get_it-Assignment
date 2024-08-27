@@ -13,7 +13,6 @@ class TweetWidget extends StatelessWidget {
       decoration: const BoxDecoration(
           border: Border(
               bottom: BorderSide(color: Color.fromARGB(94, 158, 158, 158)))),
-      height: 200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

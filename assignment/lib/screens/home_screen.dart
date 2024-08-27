@@ -1,11 +1,18 @@
+import 'package:assignment/data_layer/tweet_data.dart';
 import 'package:assignment/helper/extensions/nav.dart';
 import 'package:assignment/screens/add_tweet.dart';
 import 'package:assignment/widgets/tweet_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,7 +23,14 @@ class HomeScreen extends StatelessWidget {
             shape: const CircleBorder(),
             backgroundColor: const Color(0xff4C9EEB),
             onPressed: () {
-              context.navTo(const AddTweet());
+              context.navTo(
+                const AddTweet(),
+                (value) {
+                  if (value == true) {
+                    setState(() {});
+                  }
+                },
+              );
             },
             child: Image.asset("assets/Add_icon.png"),
           ),
@@ -34,13 +48,12 @@ class HomeScreen extends StatelessWidget {
             scale: 11,
           ),
         ),
-        body: const Column(
-          children: [
-            TweetWidget(
-                tweet:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita..")
-          ],
-        ),
+        body: Column(
+            children: GetIt.I
+                .get<TweetData>()
+                .tweets
+                .map((e) => TweetWidget(tweet: e.tweet))
+                .toList()),
       ),
     );
   }
