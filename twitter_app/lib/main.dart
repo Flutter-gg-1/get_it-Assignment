@@ -3,8 +3,9 @@ import 'package:twitter_app/screen/home_screen.dart';
 
 import 'services/setup.dart';
 
-void main() {
-  setup();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setup();
   runApp(const MainApp());
 }
 

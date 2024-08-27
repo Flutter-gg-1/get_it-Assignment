@@ -1,20 +1,36 @@
+import 'package:get_storage/get_storage.dart';
+
 import '../model/tweet_model.dart';
 
 class TweetData {
-  List<TweetModel> allTweet = [
-    TweetModel(id: 1001, tweet: "ssss"),
-    TweetModel(id: 1002, tweet: "aa"),
-    TweetModel(id: 1003, tweet: "scdww"),
-    TweetModel(id: 1004, tweet: "nm;kfjnwkrfw"),
-    TweetModel(id: 1005, tweet: "iodmw;edwend;wo"),
-    TweetModel(id: 1001, tweet: "ssss"),
-    TweetModel(id: 1002, tweet: "aa"),
-    TweetModel(id: 1003, tweet: "scdww"),
-    TweetModel(id: 1004, tweet: "nm;kfjnwkrfw"),
-    TweetModel(id: 1005, tweet: "iodmw;edwend;wo"),
-  ];
+  List<TweetModel> allTweet = [];
+  final box = GetStorage();
 
-  addTask(TweetModel tweetData) {
+  TweetData() {
+    loadTweet();
+  }
+
+  addTweet(TweetModel tweetData) {
     allTweet.add(tweetData);
+    saveTweet();
+  }
+
+  saveTweet() async {
+    List<Map<String, dynamic>> tweetJson = [];
+    for (var element in allTweet) {
+      tweetJson.add(element.toJson());
+    }
+    await box.write("tweets", tweetJson);
+  }
+
+  loadTweet() {
+    if (box.hasData("tweets")) {
+      List<Map<String, dynamic>> tweetJson = [];
+
+      tweetJson = List.from(box.read("tweets")).cast<Map<String, dynamic>>();
+      for (var element in tweetJson) {
+        allTweet.add(TweetModel.fromJson(element));
+      }
+    }
   }
 }

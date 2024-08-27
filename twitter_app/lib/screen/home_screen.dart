@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   actions: <Widget>[
                     ElevatedButton(
                         onPressed: () {
-                          GetIt.I.get<TweetData>().addTask(
+                          GetIt.I.get<TweetData>().addTweet(
                                 TweetModel(id: id++, tweet: "ssss$id"),
                               );
                           setState(() {});
