@@ -16,14 +16,18 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 1,
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
+          backgroundColor: const Color(0xff4C9EEB),
+          enableFeedback: true,
+          shape: const CircleBorder(),
           onPressed: () {},
-          child: const FaIcon(FontAwesomeIcons.plus),
+          child: const FaIcon(color: Colors.white, FontAwesomeIcons.plus),
         ),
         appBar: AppBar(
           bottom: const TabBar(
             tabs: [
               Tab(
-                child: FaIcon(color: Colors.blue, FontAwesomeIcons.twitter),
+                child:
+                    FaIcon(color: Color(0xff4C9EEB), FontAwesomeIcons.twitter),
               )
             ],
             indicatorColor: Colors.transparent,
