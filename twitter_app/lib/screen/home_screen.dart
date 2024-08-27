@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController _controller = TextEditingController();
   int id = 1000;
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SingleChildScrollView(
           child: Column(
+        verticalDirection: VerticalDirection.up,
         children: GetIt.I.get<TweetData>().allTweet.map((e) {
           return CustomTweet(txt: e.tweet);
         }).toList(),
@@ -42,11 +44,12 @@ class _HomeScreenState extends State<HomeScreen> {
               builder: (BuildContext context) {
                 return AlertDialog(
                   title: const Text('Add Tweet'),
-                  content: const TextField(
+                  content: TextField(
                       maxLines: 5,
                       minLines: 2,
                       maxLength: 140,
-                      decoration: InputDecoration(
+                      controller: _controller,
+                      decoration: const InputDecoration(
                           filled: true,
                           fillColor: Color(0xffE7ECF0),
                           hintText: "What's happend?",
@@ -55,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ElevatedButton(
                         onPressed: () {
                           GetIt.I.get<TweetData>().addTweet(
-                                TweetModel(id: id++, tweet: "ssss$id"),
+                                TweetModel(id: id++, tweet: _controller.text),
                               );
                           setState(() {});
                           Navigator.of(context).pop();
@@ -67,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               "Tweet now",
                               style: TextStyle(color: Colors.blue),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Image.asset(
