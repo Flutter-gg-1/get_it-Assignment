@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:twitter/helper/screen.dart';
 import 'package:twitter/widget/message.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,7 +35,19 @@ class _HomeScreenState extends State<HomeScreen> {
             children: const [
               Message(
                 message: "Hello X",
-              )
+              ),
+              Message(
+                message: "fdsfsdafdsafsdafdsafsdafsdafdsafdsfsdfsdafasdfdsfdsf",
+              ),
+              Message(
+                message: "Heldsafdasfddslo X",
+              ),
+              Message(
+                message: "Hellfdasfadsfasdo X",
+              ),
+              Message(
+                message: "Hello X",
+              ),
             ],
           ),
         ),

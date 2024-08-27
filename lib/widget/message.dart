@@ -20,13 +20,18 @@ class Message extends StatelessWidget {
             children: [
               SizedBox(
                 width: context.getWidth(value: .9),
-                child: Center(child: Text(message)),
+                child: Center(
+                    child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Text(message),
+                )),
               ),
               Align(
                 alignment: Alignment.bottomRight,
                 child: IconButton(
                   onPressed: onPressed,
-                  icon: const FaIcon(color: Colors.red, FontAwesomeIcons.trash),
+                  icon: const FaIcon(
+                      color: Colors.red, FontAwesomeIcons.trashCan),
                 ),
               )
             ],
