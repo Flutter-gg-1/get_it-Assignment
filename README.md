@@ -1,16 +1,10 @@
 # get_it Assignment
 
-Implement this design in an app using Flutter, using get_it and GetStorage.
+(Link on Figma)[https://www.figma.com/design/aWCEupjtCF8SFRjcoIswdZ/get_it-assignment?node-id=0-1&t=CafZwovrSmT1CtSp-1]
 
-## Note:
-1. Use Navigator widgets; to navigate between screens.
-2. Upload GIF or Video of your app.
-3. If you upload GIF, upload it in README file.
-
-
-## Submission Details:
-Deadline: 14 August 2024
-Submission Format: Provide your Flutter code file(s) along with a README file explaining widgets you are used.
+## Key Features:
+1. Add tweets: You can add tweet to the list. This tweet is saved locally using GetStorage.
+2. Remove tweets: You can delete tweet from the list. The app updates the local storage to reflect these changes.
 
 Good luck 🚀
 and happy coding! 🧑‍💻
