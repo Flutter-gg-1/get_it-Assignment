@@ -30,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            print(myController.text);
           },
           shape: const OvalBorder(),
           backgroundColor: Colors.blue,
