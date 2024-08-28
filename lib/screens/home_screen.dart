@@ -37,9 +37,36 @@ class _HomeScreenState extends State<HomeScreen> {
             ...locator.get<TweetData>().tweets.map((tweet) {
               return TweetCard(
                 tweet: tweet,
-                onDelete: () {
-                  locator.get<TweetData>().deleteTweet(tweet);
-                  setState(() {});
+                onDelete: () async {
+                  bool isConfirmed = false;
+                  await showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: const Text(
+                              'Are you sure you want to delete this tweet?'),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context, true);
+                                },
+                                child: const Text('YES')),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context, false);
+                                },
+                                child: const Text('NO'))
+                          ],
+                        );
+                      }).then((value) {
+                    if (value == true) {
+                      isConfirmed = true;
+                    }
+                  });
+                  if (isConfirmed) {
+                    locator.get<TweetData>().deleteTweet(tweet);
+                    setState(() {});
+                  }
                 },
               );
             })
