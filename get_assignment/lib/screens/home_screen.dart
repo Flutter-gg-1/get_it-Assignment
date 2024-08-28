@@ -13,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,14 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xff4C9EEB),
         onPressed: () {
-          context.push(screen: const AddTweets());
+          context.push(
+            screen: const AddTweets(),
+            onBack: (p0) {
+              if (p0 == true) {
+                setState(() {});
+              }
+            },
+          );
         },
         child: const Icon(Icons.add),
       ),

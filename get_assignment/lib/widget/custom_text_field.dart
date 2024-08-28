@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get_assignment/data_layer/tweets_data.dart';
 import 'package:get_assignment/helper/screen_size.dart';
+import 'package:get_assignment/screens/add_tweets.dart';
 import 'package:get_it/get_it.dart';
 
-class TextToWrite extends StatelessWidget {
+class TextToWrite extends StatefulWidget {
   const TextToWrite({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    TextEditingController? controller;
+  State<TextToWrite> createState() => _TextToWriteState();
+}
 
+class _TextToWriteState extends State<TextToWrite> {
+  late TextEditingController? controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController(); // Initialize the controller here
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -27,8 +39,13 @@ class TextToWrite extends StatelessWidget {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5)))),
             onSubmitted: (value) {
-              GetIt.I.get<TweetsData>().addNewTweet(tweet: value);
-              print(GetIt.I.get<TweetsData>().allTwets);
+              // controller!.clear();
+              if (value.isNotEmpty) {
+                GetIt.I.get<TweetsData>().addNewTweet(tweet: value);
+                print(GetIt.I.get<TweetsData>().allTwets);
+                Navigator.pop(context,true);
+                setState(() {});
+              }
             },
           ),
         )

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get_assignment/screens/home_screen.dart';
 import 'package:get_assignment/serveses/git_it.dart';
 
-void main() {
-  setup();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setup();
   runApp(const MainApp());
 }
 

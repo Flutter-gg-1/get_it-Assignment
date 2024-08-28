@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get_assignment/data_layer/tweets_data.dart';
 import 'package:get_assignment/helper/screen_size.dart';
 import 'package:get_assignment/widget/custom_text_field.dart';
-import 'package:get_assignment/widget/tweet_sizebox.dart';
-import 'package:get_it/get_it.dart';
 
 class AddTweets extends StatefulWidget {
   const AddTweets({super.key});
@@ -13,16 +10,14 @@ class AddTweets extends StatefulWidget {
 }
 
 class _AddTweetsState extends State<AddTweets> {
-
   //controller
   TextEditingController? controllerTweet = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Icon(Icons.arrow_circle_up_outlined),
+        title: const Icon(Icons.arrow_circle_up_outlined),
         centerTitle: true,
       ),
       body: Column(
@@ -30,8 +25,8 @@ class _AddTweetsState extends State<AddTweets> {
           SizedBox(
             height: context.getWidth(divide: 1),
           ),
-          TextToWrite(),
-          SizedBox(
+          const TextToWrite(),
+          const SizedBox(
             height: 10,
           ),
           SizedBox(
@@ -39,18 +34,14 @@ class _AddTweetsState extends State<AddTweets> {
               child: ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(Color(0xffE7ECF0))),
+                          MaterialStateProperty.all(const Color(0xffE7ECF0))),
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     "Cancel",
                     style: TextStyle(color: Colors.black),
                   ))),
 
-                  // tweets(
-                    
-                  //   text:GetIt.I.get<TweetsData>()
-                    
-                  //   )
+     
         ],
       ),
     );
