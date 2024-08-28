@@ -5,18 +5,36 @@ class RecordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 3,
-      itemBuilder: (context, index) {
-        return const Card(
-          child: ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Abu_Mukhlef'),
-            subtitle: Text('Abu_Mukhlef'),
-            trailing: Icon(Icons.more_vert),
+    return Scaffold(
+      appBar: AppBar(
+        actions: const [
+          Flexible(
+            child: SizedBox(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text('My Tweets'),
+                  Text('Tweets 3'),
+                ],
+              ),
+            ),
           ),
-        );
-      },
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: 3,
+        itemBuilder: (context, index) {
+          return const Card(
+            child: ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Abu_Mukhlef'),
+              subtitle: Text('Abu_Mukhlef'),
+              trailing: Icon(Icons.more_vert),
+            ),
+          );
+        },
+      ),
     );
   }
 }
