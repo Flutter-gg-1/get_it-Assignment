@@ -6,8 +6,33 @@ class AddTweet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: PreferredSize(preferredSize: Size(20, 70), child: CustomAbbBar()),
+    return Scaffold(
+      appBar: const PreferredSize(preferredSize: Size(20, 70), child: CustomAbbBar()),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(bottom: 30, left: 60, right: 60),
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Color.fromARGB(255, 218, 220, 222),
+                  hintText: "What is happening?",
+                  hintStyle: TextStyle(color: Color(0xff687684)),
+                  contentPadding: EdgeInsets.only(left: 4),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
+                ),
+              )
+            ),
+            SizedBox(
+              height: 48,
+              width: 398,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 218, 220, 222)),
+                onPressed: (){}, child: const Text("Cancel", style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),)))
+          ],
+        )),
     );
   }
 }
