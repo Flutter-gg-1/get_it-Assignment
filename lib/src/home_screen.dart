@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:learn_get_it/data_layer/tweet_data.dart';
-import 'package:learn_get_it/helper/extinsion/size_configration.dart';
 import 'package:learn_get_it/widget/button/floating_action.dart';
 import 'package:learn_get_it/widget/card/tweet_card.dart';
 
