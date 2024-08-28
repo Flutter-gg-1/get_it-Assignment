@@ -15,7 +15,11 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: const Column(
-        children: [Divider()],
+        children: [
+          Divider(),
+          SizedBox(height: 300),
+          MyTextField(),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
