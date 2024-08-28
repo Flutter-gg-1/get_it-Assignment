@@ -49,7 +49,7 @@ class AddTweet extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 218, 220, 222)),
                 onPressed: (){
-
+                  Navigator.pop(context);
                 }, child: const Text("Cancel", style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),)))
           ],
         )),
