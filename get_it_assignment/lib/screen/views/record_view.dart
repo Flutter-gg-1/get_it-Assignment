@@ -22,18 +22,20 @@ class RecordView extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return const Card(
-            child: ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Abu_Mukhlef'),
-              subtitle: Text('Abu_Mukhlef'),
-              trailing: Icon(Icons.more_vert),
-            ),
-          );
-        },
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: 3,
+          itemBuilder: (context, index) {
+            return const Card(
+              child: ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Abu_Mukhlef'),
+                subtitle: Text('Abu_Mukhlef'),
+                trailing: Icon(Icons.more_vert),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

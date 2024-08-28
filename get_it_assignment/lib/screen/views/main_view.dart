@@ -22,7 +22,11 @@ class MainView extends StatelessWidget {
               MaterialButton(
                 color: const Color.fromARGB(255, 124, 183, 126),
                 shape: const StadiumBorder(),
-                onPressed: () {},
+                onPressed: () {
+                  Scaffold.of(context).showBottomSheet((value) {
+                    return const RecordView();
+                  });
+                },
                 child: const Text('Tweet'),
               ),
             ],
