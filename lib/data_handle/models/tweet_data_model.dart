@@ -18,4 +18,29 @@ class TweetDataModel{
 
     id = classId;
   }
+
+
+
+  factory TweetDataModel.fromJson(Map<String, dynamic> json){
+
+
+    return TweetDataModel(text: json["text"] );
+
+
+  }
+
+
+  Map<String,dynamic> toJson(){
+
+
+
+    return{
+
+      "text" : text
+
+    };
+  }
+
+
+
 }

@@ -17,18 +17,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton:
-      
-      isShowTweet == false ?
-       FloatingActionButton(
-        backgroundColor: Color(0xff4C9EEB),
-        child: Icon(FontAwesome.pen_clip_solid ,color: Colors.white,),
-        onPressed: () {
-          isShowTweet = true;
+      floatingActionButton: isShowTweet == false
+          ? FloatingActionButton(
+              backgroundColor: const Color(0xff4C9EEB),
+              child: const Icon(
+                FontAwesome.pen_clip_solid,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                isShowTweet = true;
 
-          setState(() {});
-        },
-      ) : null,
+                setState(() {});
+              },
+            )
+          : null,
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
@@ -62,26 +64,19 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          isShowTweet == true
+              ? AddTweetWidget(
+                  onSubmitted: (val) {
+                    getIt.get<TweetModel>().addTweet(val);
+                    setState(() {});
+                  },
+                  onPressed: () {
+                    isShowTweet = false;
 
-          isShowTweet == true ?
-          AddTweetWidget(
-            onSubmitted: (val) {
-
-
-              getIt.get<TweetModel>().addTweet(val);
-              setState(() {
-                
-              });
-
-
-
-            },
-            onPressed: () {
-              isShowTweet = false;
-
-              setState(() {});
-            },
-          )  : const SizedBox()
+                    setState(() {});
+                  },
+                )
+              : const SizedBox()
         ],
       ),
     );
