@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import '../core/all_file.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +21,17 @@ class HomeScreen extends StatelessWidget {
           color: Colors.blue,
         ),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Divider(),
-          SizedBox(height: 300),
-          MyTextField(),
+          const Divider(),
+          const SizedBox(height: 300),
+          MyTextField(controller: myController),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            print(myController.text);
+          },
           shape: const OvalBorder(),
           backgroundColor: Colors.blue,
           child: const Image(image: AssetImage('assets/t2.png'))),
