@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:get_it_assignment/data_layer/tweets_data.dart';
+import 'package:get_it_assignment/widgets/floating_button.dart';
+import 'package:get_it_assignment/widgets/tweet.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,180 +24,73 @@ class _HomePageState extends State<HomePage> {
           children: [
             ListView(
               children: [
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
+                Column(
+                  children: GetIt.I.get<TweetsData>().tweets.map((e) {
+                    return Tweet(tweet: e);
+                  }).toList(),
                 ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text("as;ldasdf;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
-                const Divider(),
-                ListTile(
-                  title: const Text(
-                      "as;ldasdsadfbasnbas0ajf;odjoihugisfbnzlkdsjieosnlkdjaesfnlkdzcsdhuaesfuoidnouiseva ervbgff;jfn;"),
-                  trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                ),
+
                 const Divider(),
               ],
             ),
             Positioned(
-                bottom: 50,
-                right: 20,
-                child: FloatingActionButton(
-                    shape: const CircleBorder(),
-                    backgroundColor: const Color(0xff4C9EEB),
-                    onPressed: () {
-                      showModalBottomSheet(
-                          context: context,
-                          builder: (context) {
-                            return SizedBox(
-                              height: 600,
-                              child: Column(
-                                children: [
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const Text(
-                                    "Write your tweet",
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: TextFormField(
-                                      decoration: const InputDecoration(
-                                        border: InputBorder.none,
-                                        fillColor: Color.fromARGB(
-                                            255, 229, 228, 228),
-                                        filled: true,
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Container(
-                                      height: 45,
-                                      width: 200,
-                                      decoration: BoxDecoration(
-                                          color: const Color(0xff4C9EEB),
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                      child: const Center(
-                                        child: Text(
-                                          "Tweet",
-                                          style: TextStyle(
-                                              color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
+              bottom: 50,
+              right: 20,
+              child: FloatingButton(
+                floatinOnPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return SizedBox(
+                          height: 600,
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 10,
                               ),
-                            );
-                          });
-                    },
-                    child: Image.asset("assets/Add text icon.png"),))
+                              const Text(
+                                "Write your tweet",
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: TextFormField(
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    fillColor:
+                                        Color.fromARGB(255, 229, 228, 228),
+                                    filled: true,
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  height: 45,
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xff4C9EEB),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: const Center(
+                                    child: Text(
+                                      "Tweet",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      });
+                },
+              ),
+            )
           ],
         ),
       ),
