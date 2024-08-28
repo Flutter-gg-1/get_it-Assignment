@@ -5,6 +5,16 @@ class AccountView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      body: SafeArea(
+          child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Text('Account'),
+          ],
+        ),
+      )),
+    );
   }
 }

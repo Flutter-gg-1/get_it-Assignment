@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.record_voice_over_sharp),
             label: 'Home',
           ),
           BottomNavigationBarItem(
