@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:twitter/widget/button/add_tweat_button.dart';
-import 'package:twitter/widget/message.dart';
+import 'package:twitter/widget/message_block.dart';
+import 'package:twitter/widget/pop/show_add_tweat.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,34 +14,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return 
-    DefaultTabController(
+    return DefaultTabController(
       length: 1,
       child: Scaffold(
         floatingActionButton: AddTweatButton(
           onPressed: () {
-            showBottomSheet(
+            showAddTweet(
               context: context,
-              builder: (context) {
-                return SizedBox(
-                  height: 200,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        const Text('BottomSheet'),
-                        ElevatedButton(
-                          child: const Text('Close'),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
+              controller: TextEditingController(),
+              onSubmitted: (p0) {},
             );
           },
         ),
@@ -59,19 +41,19 @@ class _HomeScreenState extends State<HomeScreen> {
           child: ListView(
             shrinkWrap: true,
             children: const [
-              Message(
+              MessageBlock(
                 message: "Hello X",
               ),
-              Message(
+              MessageBlock(
                 message: "fdsfsdafdsafsdafdsafsdafsdafdsafdsfsdfsdafasdfdsfdsf",
               ),
-              Message(
+              MessageBlock(
                 message: "Heldsafdasfddslo X",
               ),
-              Message(
+              MessageBlock(
                 message: "Hellfdasfadsfasdo X",
               ),
-              Message(
+              MessageBlock(
                 message: "Hello X",
               ),
             ],

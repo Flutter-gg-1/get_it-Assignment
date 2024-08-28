@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:twitter/helper/screen.dart';
 
-class Message extends StatelessWidget {
-  const Message({
+class MessageBlock extends StatelessWidget {
+  const MessageBlock({
     super.key,
     required this.message,
     this.onPressed,
