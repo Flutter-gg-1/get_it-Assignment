@@ -1,11 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:twitter/helper/setup.dart';
 import 'package:twitter/screen/bottom_container.dart';
 import 'package:device_preview/device_preview.dart';
 
-void main() {
-   setup();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await GetStorage.init();
+   await setup();
 
   runApp(
     DevicePreview(

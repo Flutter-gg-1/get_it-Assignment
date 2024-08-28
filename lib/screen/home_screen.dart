@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
               context: context,
               controller: addTweatController,
               onSubmitted: (p0) {
-                GetIt.I.get<Global>().tweats.add(
+                GetIt.I.get<Global>().addTweats(
                       TweatModel(
                         message: addTweatController.text,
                         id: Random().nextInt(99),
@@ -59,6 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: GetIt.I.get<Global>().tweats.length,
                     itemBuilder: (context, index) {
                       return MessageBlock(
+                        onPressed: () {
+                          GetIt.I
+                              .get<Global>()
+                              .delete(GetIt.I.get<Global>().tweats[index]);
+                          setState(() {});
+                        },
                         message: GetIt.I.get<Global>().tweats[index].message,
                       );
                     },
