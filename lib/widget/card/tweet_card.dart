@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:learn_get_it/helper/extinsion/size_configration.dart';
 
 class TweetCard extends StatelessWidget {
@@ -21,6 +22,7 @@ class TweetCard extends StatelessWidget {
           child: Column(
             children: [
               ListTile(
+                leading: Brand(Brands.twitter_circled),
                 title: Text(content),
               ),
               Align(
