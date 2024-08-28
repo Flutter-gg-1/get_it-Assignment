@@ -1,13 +1,42 @@
-# get_it Assignment
+![Tuwaiq](./lib/image/TuwaiqAcademy.png)
+# Tweet Management App
 
-[Desgin in figma:](https://www.figma.com/design/aWCEupjtCF8SFRjcoIswdZ/get_it-assignment?node-id=0-1&t=CafZwovrSmT1CtSp-1)
+A simple Flutter application for managing tweets. Users can add new tweets, view existing ones, and delete tweets. The app utilizes `GetIt` for dependency injection and `GetStorage` for local storage.
 
-## Key Features:
-1. Add tweets: You can add tweet to the list. This tweet is saved locally using GetStorage.
-2. Remove tweets: You can delete tweet from the list. The app updates the local storage to reflect these changes.
+## Features
 
-## Deadline
-- **Submission Deadline**: 29 August, 9:59 AM
+- **Add New Tweets**: Users can input and save new tweets.
+- **View Tweets**: Display a list of existing tweets.
+- **Delete Tweets**: Remove tweets from the list. method used is removeWhere((id == id)) to remove it from the list. 
 
-Good luck 🚀
-and happy coding! 🧑‍💻
+## Technologies Used
+
+- **GetIt**: Service locator for managing state and dependencies.
+- **GetStorage**: Local storage solution for persisting tweet data.
+
+### `TextFieldCustom`
+
+- **TextField**: Customized text field with styling for user input.
+
+### `CustomButton`
+
+- **ElevatedButton**: Custom-styled button used for actions like adding or canceling tweets.
+
+
+# Here is how it looks 
+
+## 1 
+
+![MainPage](./lib/image/mainHome.png)
+
+## 2 
+
+![TweetPage](./lib/image/tweetPage.png)
+
+## 3
+
+![exampleGif](./lib/image/exampleGif.gif)
+
+
+
+
