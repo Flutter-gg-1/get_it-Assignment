@@ -7,7 +7,7 @@ class AddTweet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: const PreferredSize(preferredSize: Size(20, 70), child: CustomAbbBar()),
+      appBar: PreferredSize(preferredSize: Size(20, 70), child: CustomAbbBar()),
     );
   }
 }
