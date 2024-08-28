@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_app/screens/home_screen.dart';
+import 'package:twitter_app/screens/landing_screen.dart';
 
 import 'helper/get_it.dart';
 
@@ -15,6 +15,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomeScreen());
+        debugShowCheckedModeBanner: false, home: LandingScreen());
   }
 }
