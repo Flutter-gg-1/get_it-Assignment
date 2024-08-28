@@ -12,7 +12,7 @@ class AddTweetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 120,
       child:  Column(
@@ -45,10 +45,10 @@ class AddTweetWidget extends StatelessWidget {
                 backgroundColor: const Color(0xffE7ECF0)
                 
               ),
-              
-               child: const Text("Cancel",style: TextStyle(color: Colors.black),),
             
                onPressed: onPressed,
+              
+               child: const Text("Cancel",style: TextStyle(color: Colors.black),),
                
                
                ),
