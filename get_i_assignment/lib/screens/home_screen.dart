@@ -8,14 +8,14 @@ import '../data_layer/tweet_service.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  final TweetService _tweetService = GetIt.I<TweetService>();
-  final TextEditingController _tweetController = TextEditingController();
-  bool _isTextFieldVisible = false; 
-  Future<void> _navigateToAddTweetScreen() async {
+class HomeScreenState extends State<HomeScreen> {
+  final TweetService tweetService = GetIt.I<TweetService>();
+  final TextEditingController tweetController = TextEditingController();
+  bool isTextFieldVisible = false; 
+  Future<void> navigateToAddTweetScreen() async {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => AddTweetScreen()),
@@ -42,25 +42,25 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Expanded(
             child: TweetList(
-              tweets: _tweetService.getTweets(),
+              tweets: tweetService.getTweets(),
               onDelete: (tweet) {
-                _tweetService.removeTweet(tweet);
+                tweetService.removeTweet(tweet);
                 setState(() {});
               },
             ),
           ),
-          if (_isTextFieldVisible)
+          if (isTextFieldVisible)
             TweetInputField(
-              controller: _tweetController,
+              controller: tweetController,
               onSend: () {
-                if (_tweetController.text.isNotEmpty) {
-                  _tweetService.addTweet(Tweet(
-                    content: _tweetController.text,
+                if (tweetController.text.isNotEmpty) {
+                  tweetService.addTweet(Tweet(
+                    content: tweetController.text,
                     timestamp: DateTime.now(),
                   ));
-                  _tweetController.clear();
+                  tweetController.clear();
                   setState(() {
-                    _isTextFieldVisible =
+                    isTextFieldVisible =
                         false; 
                   });
                 }
@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _navigateToAddTweetScreen,
+        onPressed: navigateToAddTweetScreen,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),

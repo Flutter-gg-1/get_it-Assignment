@@ -5,18 +5,18 @@ import 'package:get_it/get_it.dart';
 
 class AddTweetScreen extends StatefulWidget {
   @override
-  _AddTweetScreenState createState() => _AddTweetScreenState();
+  AddTweetScreenState createState() => AddTweetScreenState();
 }
 
-class _AddTweetScreenState extends State<AddTweetScreen> {
-  final TextEditingController _tweetController = TextEditingController();
-  final TweetService _tweetService = GetIt.I<TweetService>();
+class AddTweetScreenState extends State<AddTweetScreen> {
+  final TextEditingController tweetController = TextEditingController();
+  final TweetService tweetService = GetIt.I<TweetService>();
 
   void _sendTweet() {
-    if (_tweetController.text.isNotEmpty) {
-      _tweetService.addTweet(
+    if (tweetController.text.isNotEmpty) {
+      tweetService.addTweet(
         Tweet(
-          content: _tweetController.text,
+          content: tweetController.text,
           timestamp: DateTime.now(),
         ),
       );
@@ -34,7 +34,7 @@ class _AddTweetScreenState extends State<AddTweetScreen> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context); // Cancel and go back
+            Navigator.pop(context); 
           },
         ),
         title: Text(
@@ -53,13 +53,13 @@ class _AddTweetScreenState extends State<AddTweetScreen> {
                 children: [
                   Expanded(
                     child: TextField(
-                      controller: _tweetController,
+                      controller: tweetController,
                       maxLines: null,
                       decoration: InputDecoration(
                         hintText: 'What’s happening?',
                         hintStyle: TextStyle(color: Colors.grey),
                         filled: true,
-                        fillColor: Colors.grey[200], // Grey inside color
+                        fillColor: Colors.grey[200], 
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: BorderSide.none,

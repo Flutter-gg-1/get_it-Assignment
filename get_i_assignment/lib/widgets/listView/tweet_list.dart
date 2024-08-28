@@ -8,10 +8,9 @@ class TweetList extends StatelessWidget {
 
   TweetList({required this.tweets, required this.onDelete});
 
-  // Format DateTime
   String formatDateTime(DateTime dateTime) {
     final DateFormat formatter =
-        DateFormat('hh:mm a dd/MM/yyyy'); // Format with AM/PM
+        DateFormat('hh:mm a dd/MM/yyyy'); 
     return formatter.format(dateTime);
   }
 

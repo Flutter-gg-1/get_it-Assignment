@@ -4,7 +4,7 @@ class Tweet {
 
   Tweet({required this.content, required this.timestamp});
 
-  // Convert Tweet to Map (for storage)
+
   Map<String, dynamic> toMap() {
     return {
       'content': content,
@@ -12,7 +12,7 @@ class Tweet {
     };
   }
 
-  // Convert Map to Tweet
+
   factory Tweet.fromMap(Map<String, dynamic> map) {
     return Tweet(
       content: map['content'],
