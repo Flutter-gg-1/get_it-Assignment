@@ -44,6 +44,8 @@ class TweetBottomSheet extends StatelessWidget {
                     Navigator.pop(context, true);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      margin: EdgeInsets.only(bottom: 300, left: 50, right: 50),
                       content: Text(
                         'Cannot Tweet nothing!!\nWhat is happening?',
                         textAlign: TextAlign.center,
