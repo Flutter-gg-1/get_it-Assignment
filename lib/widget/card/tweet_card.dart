@@ -26,7 +26,7 @@ class TweetCard extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomRight,
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: onPressed,
                     icon: const Icon(
                       Icons.delete,
                       color: Colors.red,

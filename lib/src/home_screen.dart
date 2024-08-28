@@ -54,6 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   (e) => TweetCard(
                     content: e.content,
                     id: e.id,
+                    onPressed: () {
+                      GetIt.I.get<TweetData>().removeTweet(id: e.id);
+                      setState(() {});
+                     
+                    },
                   ),
                 )
                 .toList(),

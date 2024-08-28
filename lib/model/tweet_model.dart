@@ -4,7 +4,7 @@ class TweetModel {
 
   TweetModel({required this.id, required this.content});
 
-  TweetModel.fromJson(Map<String, dynamic> json, this.id, this.content) {
+  TweetModel.fromJson(Map<String, dynamic> json,) {
     id = json['id'];
     content = json['content'];
   }
