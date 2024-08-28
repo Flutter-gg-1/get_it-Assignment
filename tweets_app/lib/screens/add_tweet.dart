@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:tweets_app/managers/data_mgr.dart';
 import '../model/tweet.dart';
 
@@ -29,8 +30,7 @@ class AddTweet extends StatelessWidget {
         leading: IconButton(
             onPressed: () => _popView(context),
             icon: Icon(CupertinoIcons.chevron_left)),
-        title:
-            const Icon(CupertinoIcons.airplane, size: 40, color: Colors.blue),
+        title: const Icon(EvaIcons.twitter, size: 40, color: Colors.blue),
         centerTitle: true,
       ),
       body: SafeArea(
