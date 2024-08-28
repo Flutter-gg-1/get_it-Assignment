@@ -6,6 +6,35 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return Scaffold(
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 250),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: TextField(
+                  minLines: 1,
+                  maxLines: 5,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    hintText: 'Write here',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: Text('Abu_Mukhlef'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

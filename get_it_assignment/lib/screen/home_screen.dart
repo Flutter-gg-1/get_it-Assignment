@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/all_file.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,38 +9,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<Widget> _myListViews = <Widget>[
+    const MainView(),
+    const RecordView(),
+    const AccountView()
+  ];
   late int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SizedBox(
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 250),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
-                  minLines: 1,
-                  maxLines: 5,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hintText: 'Write here',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                ),
-              ),
-              const Expanded(
-                child: Text('Abu_Mukhlef'),
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: _myListViews.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color.fromARGB(255, 124, 183, 126),
         selectedIconTheme: const IconThemeData(color: Colors.white),
@@ -52,6 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() {});
         },
         items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
