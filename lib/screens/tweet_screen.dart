@@ -1,6 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:get_it_assignment/data/all_tweets.dart';
 import 'package:get_it_assignment/extensions/screen_size.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,7 +51,8 @@ class _TweetScreenState extends State<TweetScreen> {
                     ),
                   ),
                   IconButton(onPressed: (){
-                    log(tweetController.text);
+                    GetIt.I.get<AllTweets>().addTweet(tweetContent: tweetController.text);
+                    Navigator.pop(context,true);
                   }, icon: Icon(Icons.send))
                 ],
               ),

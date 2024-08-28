@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:get_it_assignment/data/all_tweets.dart';
 import 'package:get_it_assignment/extensions/screen_push.dart';
 import 'package:get_it_assignment/extensions/screen_size.dart';
+import 'package:get_it_assignment/models/tweet.dart';
 import 'package:get_it_assignment/screens/tweet_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +24,35 @@ class _HomeScreenState extends State<HomeScreen> {
           centerTitle: true,
           bottom: PreferredSize(preferredSize: Size(context.getWidth(), double.minPositive), child: const Divider(color: Colors.black26,)),
           title: Image.asset('assets/twitter_logo.png', width: 27, height: 22,) ,
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: GetIt.I.get<AllTweets>().tweets.length,
+                itemBuilder: (context, index) {
+                  Tweet currentTweet = GetIt.I.get<AllTweets>().tweets[index];
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 350,
+                        height: 200,
+                        child: Text(currentTweet.tweetContent)),
+                      IconButton(
+                        alignment: Alignment.bottomCenter,
+                        icon: Icon(Icons.delete), onPressed: (){
+                          GetIt.I.get<AllTweets>().deleteTweet(id: currentTweet.tweetId);
+                          setState(() {});
+                      },)
+                    ],
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: Container(
