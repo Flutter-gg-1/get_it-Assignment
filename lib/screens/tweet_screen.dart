@@ -46,23 +46,23 @@ class _TweetScreenState extends State<TweetScreen> {
                       counterText: "",
                       label: Text("What is happening?", style: GoogleFonts.actor(fontSize: 16),),
                       filled: true,
-                      fillColor: Color(0xffE7ECF0),
-                      constraints: BoxConstraints(minHeight: 35, maxHeight: 35*3, maxWidth: 280)
+                      fillColor: const Color(0xffE7ECF0),
+                      constraints: const BoxConstraints(minHeight: 35, maxHeight: 35*3, maxWidth: 280)
                     ),
                   ),
                   IconButton(onPressed: (){
                     GetIt.I.get<AllTweets>().addTweet(tweetContent: tweetController.text);
                     Navigator.pop(context,true);
-                  }, icon: Icon(Icons.send))
+                  }, icon: const Icon(Icons.send))
                 ],
               ),
-              SizedBox(height: 32,),
+              const SizedBox(height: 32,),
               Container(
                 width: context.getWidth(),
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                margin: EdgeInsets.only(bottom: 42),
+                margin: const EdgeInsets.only(bottom: 42),
                 child: TextButton(
-                  style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color(0xffE7ECF0))),
+                  style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color(0xffE7ECF0))),
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     "Cancel",

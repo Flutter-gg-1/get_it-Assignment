@@ -5,6 +5,7 @@ import 'package:get_it_assignment/extensions/screen_push.dart';
 import 'package:get_it_assignment/extensions/screen_size.dart';
 import 'package:get_it_assignment/models/tweet.dart';
 import 'package:get_it_assignment/screens/tweet_screen.dart';
+import 'package:get_it_assignment/widgets/tweet_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
         preferredSize: Size(context.getWidth(), 59),
         child: AppBar(
           centerTitle: true,
-          bottom: PreferredSize(preferredSize: Size(context.getWidth(), double.minPositive), child: const Divider(color: Colors.black26,)),
+          bottom: PreferredSize(
+            preferredSize: Size(context.getWidth(), double.minPositive),
+            child: const Divider(thickness: 0,color: Colors.black26)),
           title: Image.asset('assets/twitter_logo.png', width: 27, height: 22,) ,
         ),
       ),
@@ -34,20 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: GetIt.I.get<AllTweets>().tweets.length,
                 itemBuilder: (context, index) {
                   Tweet currentTweet = GetIt.I.get<AllTweets>().tweets[index];
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 350,
-                        height: 200,
-                        child: Text(currentTweet.tweetContent)),
-                      IconButton(
-                        alignment: Alignment.bottomCenter,
-                        icon: Icon(Icons.delete), onPressed: (){
-                          GetIt.I.get<AllTweets>().deleteTweet(id: currentTweet.tweetId);
-                          setState(() {});
-                      },)
-                    ],
+                  return TweetCard(
+                    tweet: currentTweet,
+                    onDelete: (){
+                      GetIt.I.get<AllTweets>().deleteTweet(id: currentTweet.tweetId);
+                      setState(() {});
+                    }
                   );
                 },
               ),
