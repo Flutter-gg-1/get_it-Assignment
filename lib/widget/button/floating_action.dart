@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:learn_get_it/src/post_screen.dart';
 
 class FloatinButton extends StatelessWidget {
+  final Function()? onPressed;
   const FloatinButton({
-    super.key,
+    super.key, this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const PostScreen(),
-            ));
-      },
+      onPressed: onPressed,
       shape: const CircleBorder(),
       backgroundColor: const Color.fromARGB(255, 30, 124, 212),
       child: const Row(

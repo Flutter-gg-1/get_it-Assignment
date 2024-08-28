@@ -5,9 +5,10 @@ import 'package:learn_get_it/helper/extinsion/size_configration.dart';
 class CustomTextFeild extends StatelessWidget {
   final String? hintText;
   final TextEditingController? controller;
+  final Function(String)? onChanged;
   const CustomTextFeild({
     super.key,
-    this.hintText, this.controller,
+    this.hintText, this.controller, this.onChanged,
   });
 
   @override
@@ -17,6 +18,7 @@ class CustomTextFeild extends StatelessWidget {
       margin: const EdgeInsets.only(top: 41,bottom: 41,left: 41),
       color: const Color(0xFFE7ECF0),
       child: TextField(
+        controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(color: Color(0xFF687684)),
