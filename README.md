@@ -22,6 +22,10 @@ The purpose of this app is to practice on local storage using `get_it` & `get_st
 ![alt text](assest/readme/image.png)
 
 ### External Packages
+- **get_it**: Is a simple Service Locator for Dart and Flutter projects.
+
+- **get_storage**: A fast, extra light and synchronous key-value in memory, which backs up data to disk at each operation. It is written entirely in Dart and easily integrates with Get framework of Flutter.
+
 - **Icons Plus**: Is a package for Flutter developers that provides a collection of attractive icons from different packs.
 
 ## Instructions for Running the App
