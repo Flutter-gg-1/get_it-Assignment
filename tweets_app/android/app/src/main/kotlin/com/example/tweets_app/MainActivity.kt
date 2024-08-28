@@ -1,4 +1,4 @@
-package com.example.tweets
+package com.example.tweets_app
 
 import io.flutter.embedding.android.FlutterActivity
 
