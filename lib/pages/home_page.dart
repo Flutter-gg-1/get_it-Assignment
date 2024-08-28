@@ -26,10 +26,15 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Column(
                   children: GetIt.I.get<TweetsData>().tweets.map((e) {
-                    return Tweet(tweet: e);
+                    return Tweet(
+                      tweet: e,
+                      onDelete: () {
+                        GetIt.I.get<TweetsData>().tweets.remove(e);
+                        setState(() {});
+                      },
+                    );
                   }).toList(),
                 ),
-
                 const Divider(),
               ],
             ),

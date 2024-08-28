@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:get_it_assignment/data_layer/tweets_data.dart';
 
 class Tweet extends StatelessWidget {
   final String tweet;
-  const Tweet({super.key, required this.tweet});
+  final Function()? onDelete;
+  const Tweet({super.key, required this.tweet, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -10,11 +13,9 @@ class Tweet extends StatelessWidget {
       children: [
         const Divider(),
         ListTile(
-          title: Text(tweet), // Assuming `e` has a `content` property
+          title: Text(tweet),
           trailing: IconButton(
-            onPressed: () {
-              
-            },
+            onPressed: onDelete,
             icon: const Icon(
               Icons.delete,
               color: Colors.red,
@@ -25,3 +26,6 @@ class Tweet extends StatelessWidget {
     );
   }
 }
+
+
+//GetIt.I.get<TweetsData>().tweets.remove(tweet);
