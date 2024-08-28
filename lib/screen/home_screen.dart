@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController addTweatController = TextEditingController();
     return DefaultTabController(
       length: 1,
       child: Scaffold(
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {
             showAddTweet(
               context: context,
-              controller: TextEditingController(),
+              controller: addTweatController,
               onSubmitted: (p0) {},
             );
           },
