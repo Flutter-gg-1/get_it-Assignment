@@ -1,5 +1,6 @@
+import 'dart:math';
+
 import 'package:assignment/data_layer/tweet_data.dart';
-import 'package:assignment/helper/extensions/nav.dart';
 import 'package:assignment/models/tweet_model.dart';
 import 'package:assignment/widgets/buttons/custom_button.dart';
 import 'package:assignment/widgets/fields/custom_field.dart';
@@ -44,17 +45,18 @@ class _AddTweetState extends State<AddTweet> {
                   hint: "What is happening?",
                   controller: tweetController,
                   onSubmitted: (p0) {
-                    TweetModel newTweet =
-                        TweetModel(tweet: tweetController.text);
+                    TweetModel newTweet = TweetModel(
+                        tweet: tweetController.text,
+                        id: Random().nextInt(9999));
                     GetIt.I.get<TweetData>().addTweet(newTweet);
-                    context.goBack(true);
+                    Navigator.pop(context);
                   },
                 ),
                 const SizedBox(height: 30),
                 CustomButton(
                   label: "Cancel",
                   onPressed: () {
-                    context.goBack(true);
+                    Navigator.pop(context);
                   },
                 )
               ],

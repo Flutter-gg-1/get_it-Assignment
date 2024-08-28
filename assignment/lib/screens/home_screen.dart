@@ -1,5 +1,4 @@
 import 'package:assignment/data_layer/tweet_data.dart';
-import 'package:assignment/helper/extensions/nav.dart';
 import 'package:assignment/screens/add_tweet.dart';
 import 'package:assignment/widgets/tweet_widget.dart';
 import 'package:flutter/material.dart';
@@ -22,21 +21,19 @@ class _HomeScreenState extends State<HomeScreen> {
           child: FloatingActionButton(
             shape: const CircleBorder(),
             backgroundColor: const Color(0xff4C9EEB),
-            onPressed: () {
-              context.navTo(
-                const AddTweet(),
-                (value) {
-                  if (value == true) {
-                    setState(() {});
-                  }
-                },
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AddTweet()),
               );
+              setState(() {});
             },
             child: Image.asset("assets/Add_icon.png"),
           ),
         ),
         backgroundColor: Colors.white,
         appBar: AppBar(
+          forceMaterialTransparency: true,
           toolbarHeight: 100,
           shape: const Border.fromBorderSide(BorderSide(
             color: Color.fromARGB(94, 158, 158, 158),
@@ -48,12 +45,22 @@ class _HomeScreenState extends State<HomeScreen> {
             scale: 11,
           ),
         ),
-        body: Column(
-            children: GetIt.I
-                .get<TweetData>()
-                .tweets
-                .map((e) => TweetWidget(tweet: e.tweet))
-                .toList()),
+        body: SingleChildScrollView(
+          child: Column(
+              children: GetIt.I
+                  .get<TweetData>()
+                  .tweets
+                  .map(
+                    (e) => TweetWidget(
+                      tweet: e.tweet,
+                      iconPressed: () {
+                        GetIt.I.get<TweetData>().deleteTweet(id: e.id);
+                        setState(() {});
+                      },
+                    ),
+                  )
+                  .toList()),
+        ),
       ),
     );
   }
