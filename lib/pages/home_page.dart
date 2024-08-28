@@ -12,6 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String? newTweet;
+  bool isValid = true;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,18 +65,42 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(16.0),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    border: InputBorder.none,
-                                    fillColor:
-                                        Color.fromARGB(255, 229, 228, 228),
-                                    filled: true,
+                                child: Form(
+                                  key: _formKey,
+                                  child: TextFormField(
+                                    autovalidateMode:
+                                        AutovalidateMode.onUnfocus,
+                                    decoration: const InputDecoration(
+                                      border: InputBorder.none,
+                                      fillColor:
+                                          Color.fromARGB(255, 229, 228, 228),
+                                      filled: true,
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        isValid = false;
+                                        return 'Please enter some text';
+                                      }
+                                      return null;
+                                    },
+                                    onChanged: (value) {
+                                      setState(() {
+                                        newTweet = value;
+                                      });
+                                    },
                                   ),
                                 ),
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.pop(context);
+                                  if (_formKey.currentState!.validate()) {
+                                    GetIt.I
+                                        .get<TweetsData>()
+                                        .tweets
+                                        .add(newTweet!);
+                                    setState(() {});
+                                    Navigator.pop(context);
+                                  }
                                 },
                                 child: Container(
                                   height: 45,

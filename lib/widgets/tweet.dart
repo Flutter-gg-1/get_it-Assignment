@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:get_it_assignment/data_layer/tweets_data.dart';
+
 
 class Tweet extends StatelessWidget {
   final String tweet;
@@ -27,5 +26,3 @@ class Tweet extends StatelessWidget {
   }
 }
 
-
-//GetIt.I.get<TweetsData>().tweets.remove(tweet);
