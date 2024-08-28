@@ -12,11 +12,12 @@ class MyTextField extends StatelessWidget {
       child: TextField(
         controller: controller,
         decoration: const InputDecoration(
-            border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-        )),
+          filled: true,
+          fillColor: Color(0xffF5F5F5),
+          border: InputBorder.none,
+          hintText: 'What\'s happening?',
+          hintStyle: TextStyle(color: Colors.grey),
+        ),
       ),
     );
   }

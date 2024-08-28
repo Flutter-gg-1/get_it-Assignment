@@ -11,11 +11,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController myController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const FaIcon(
           FontAwesomeIcons.twitter,
           color: Colors.blue,
@@ -25,15 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           const Divider(),
           const SizedBox(height: 300),
-          MyTextField(controller: myController),
+          MyTextField(controller: myController)
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-          },
-          shape: const OvalBorder(),
-          backgroundColor: Colors.blue,
-          child: const Image(image: AssetImage('assets/t2.png'))),
+      floatingActionButton: Flexible(
+        child: FloatingActionButton(
+            onPressed: () {},
+            shape: const OvalBorder(),
+            backgroundColor: Colors.blue,
+            child: const Image(image: AssetImage('assets/t2.png'))),
+      ),
     );
   }
 }
