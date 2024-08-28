@@ -22,6 +22,7 @@ class _AddTweetState extends State<AddTweet> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 100,
           shape: const Border.fromBorderSide(BorderSide(
             color: Color.fromARGB(94, 158, 158, 158),
