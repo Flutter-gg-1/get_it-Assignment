@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: PreferredSize(
         preferredSize: Size(context.getWidth(), 59),
         child: AppBar(
+          forceMaterialTransparency: true, // prevent change color when scroll
           centerTitle: true,
           bottom: PreferredSize(
             preferredSize: Size(context.getWidth(), double.minPositive),

@@ -47,7 +47,7 @@ class _TweetScreenState extends State<TweetScreen> {
                       label: Text("What is happening?", style: GoogleFonts.actor(fontSize: 16),),
                       filled: true,
                       fillColor: const Color(0xffE7ECF0),
-                      constraints: const BoxConstraints(minHeight: 35, maxHeight: 35*3, maxWidth: 280)
+                      constraints: BoxConstraints(minHeight: 35, maxHeight: 35*3, maxWidth: context.getWidth()-100)
                     ),
                   ),
                   IconButton(onPressed: (){
