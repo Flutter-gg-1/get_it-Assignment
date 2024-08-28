@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         id: Random().nextInt(99),
                       ),
                     );
+                addTweatController.clear();
                 setState(() {});
               },
             );
