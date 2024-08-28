@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:tweets_app/screens/add_tweet.dart';
 import '../managers/data_mgr.dart';
 
@@ -30,15 +31,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Icon(CupertinoIcons.airplane, size: 40, color: Colors.blue),
+        title: const Icon(EvaIcons.twitter, size: 40, color: Colors.blue),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         backgroundColor: Colors.blue,
         onPressed: () => _navigate(context),
-        child: const Icon(CupertinoIcons.plus, color: Colors.white, size: 32),
+        child: const Icon(Bootstrap.feather, color: Colors.white, size: 32),
       ),
       body: SafeArea(
         child: Padding(

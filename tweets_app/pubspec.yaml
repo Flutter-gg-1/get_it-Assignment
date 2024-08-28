@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   get_it: ^7.7.0
   get_storage: ^2.1.1
+  icons_plus: ^5.0.0
 
 dev_dependencies:
   flutter_test:
