@@ -29,7 +29,7 @@ class AddTweet extends StatelessWidget {
               height: 48,
               width: 398,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 218, 220, 222)),
+                style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 218, 220, 222)),
                 onPressed: (){}, child: const Text("Cancel", style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),)))
           ],
         )),
