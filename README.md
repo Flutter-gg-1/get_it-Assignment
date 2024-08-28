@@ -1,13 +1,12 @@
-# get_it Assignment
+# Tweet App
 
-[Desgin in figma:](https://www.figma.com/design/aWCEupjtCF8SFRjcoIswdZ/get_it-assignment?node-id=0-1&t=CafZwovrSmT1CtSp-1)
+This is a simple Flutter application that allows users to add and remove tweets. The app demonstrates the use of `GetIt` for dependency injection, `ListView` for displaying lists, and `showModalBottomSheet` for creating a modal input form.
 
-## Key Features:
-1. Add tweets: You can add tweet to the list. This tweet is saved locally using GetStorage.
-2. Remove tweets: You can delete tweet from the list. The app updates the local storage to reflect these changes.
+## Features
 
-## Deadline
-- **Submission Deadline**: 29 August, 9:59 AM
+- **Display Tweets:** View a list of tweets.
+- **Add New Tweet:** Use a modal bottom sheet to enter and add a new tweet.
+- **Delete Tweet:** Remove tweets from the list with a delete button.
+- **Dependency Injection:** Utilizes `GetIt` for managing dependencies.
 
-Good luck 🚀
-and happy coding! 🧑‍💻
+<img src="assets/video.gif" width="300"/>
