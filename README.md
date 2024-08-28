@@ -1,13 +1,14 @@
-# get_it Assignment
+# Tweets App
 
-[Desgin in figma:](https://www.figma.com/design/aWCEupjtCF8SFRjcoIswdZ/get_it-assignment?node-id=0-1&t=CafZwovrSmT1CtSp-1)
+A application that utilizes the use of 'GetIt' package for centralized data management, and 'Get Storage' for persisting data on the device.
+The functionality in this application is very basic and stright-forward. The user can add and delete comments 'tweets'.
 
-## Key Features:
-1. Add tweets: You can add tweet to the list. This tweet is saved locally using GetStorage.
-2. Remove tweets: You can delete tweet from the list. The app updates the local storage to reflect these changes.
+## App Screens
 
-## Deadline
-- **Submission Deadline**: 29 August, 9:59 AM
+![Alt text](./tweet.gif)
 
-Good luck 🚀
-and happy coding! 🧑‍💻
+## Created By
+
+- **Amer Alyusuf**
+- [Personal Website](https://amer266030.github.io)
+- [LinkedIn](https://www.linkedin.com/in/amer-alyusuf-77398587)
