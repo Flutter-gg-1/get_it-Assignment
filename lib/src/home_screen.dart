@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:learn_get_it/data_layer/tweet_data.dart';
+import 'package:learn_get_it/helper/extinsion/size_configration.dart';
 import 'package:learn_get_it/widget/button/floating_action.dart';
+import 'package:learn_get_it/widget/card/tweet_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: const Padding(
         padding: EdgeInsets.only(bottom: 60),
-        child:  FloatinButton(),
+        child: FloatinButton(),
       ),
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -21,10 +25,19 @@ class HomeScreen extends StatelessWidget {
         shape: LinearBorder.bottom(
             side: const BorderSide(color: Colors.grey, width: 0.2)),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: [],
+            children: GetIt.I
+                .get<TweetData>()
+                .tweets
+                .map(
+                  (e) => TweetCard(
+                    content: e.content,
+                    id: e.id,
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),

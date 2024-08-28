@@ -1,17 +1,20 @@
 
 import 'package:flutter/material.dart';
+import 'package:learn_get_it/helper/extinsion/size_configration.dart';
 
 class CustomTextFeild extends StatelessWidget {
   final String? hintText;
+  final TextEditingController? controller;
   const CustomTextFeild({
     super.key,
-    this.hintText,
+    this.hintText, this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(41),
+      width: context.getWidth()*0.7,
+      margin: const EdgeInsets.only(top: 41,bottom: 41,left: 41),
       color: const Color(0xFFE7ECF0),
       child: TextField(
         decoration: InputDecoration(
