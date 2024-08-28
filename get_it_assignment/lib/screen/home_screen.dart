@@ -14,9 +14,14 @@ class HomeScreen extends StatelessWidget {
           color: Colors.blue,
         ),
       ),
-      body: const Center(
-        child: Text('Hello World!'),
+      body: const Column(
+        children: [Divider()],
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          shape: const OvalBorder(),
+          backgroundColor: Colors.blue,
+          child: const Image(image: AssetImage('assets/t2.png'))),
     );
   }
 }
