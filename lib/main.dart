@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get_it_assignment/pages/home_page.dart';
 import 'package:get_it_assignment/services/setup.dart';
 
-void main() {
-  setup();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setup();
   runApp(const MainApp());
 }
 

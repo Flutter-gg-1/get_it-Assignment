@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                     return Tweet(
                       tweet: e,
                       onDelete: () {
-                        GetIt.I.get<TweetsData>().tweets.remove(e);
+                        GetIt.I.get<TweetsData>().deleteTweet(e);
                         setState(() {});
                       },
                     );
@@ -96,8 +96,7 @@ class _HomePageState extends State<HomePage> {
                                   if (_formKey.currentState!.validate()) {
                                     GetIt.I
                                         .get<TweetsData>()
-                                        .tweets
-                                        .add(newTweet!);
+                                        .addTweet(newTweet!);
                                     setState(() {});
                                     Navigator.pop(context);
                                   }
