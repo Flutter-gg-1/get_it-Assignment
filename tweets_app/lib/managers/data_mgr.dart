@@ -22,27 +22,29 @@ class DataMgr {
         allTweets.add(Tweet.fromJson(task));
       }
     }
+  }
 
-    void addNewTweet(Tweet tweet) async {
-      allTweets.add(tweet);
+  Future<void> addNewTweet(Tweet tweet) async {
+    allTweets.add(tweet);
+    List<Map<String, dynamic>> tweetsAsMap = [];
+    for (var tweet in allTweets) {
+      tweetsAsMap.add(tweet.toJson());
+    }
+    await box.write('tweets', tweetsAsMap);
+  }
+
+  Future<void> removeTweet({required int tweetId}) async {
+    Tweet? tweet =
+        allTweets.where((tweet) => tweet.id == tweetId).toList().firstOrNull;
+    if (tweet != null) {
+      allTweets.remove(tweet);
       List<Map<String, dynamic>> tweetsAsMap = [];
       for (var tweet in allTweets) {
         tweetsAsMap.add(tweet.toJson());
       }
       await box.write('tweets', tweetsAsMap);
-    }
-
-    void removeTweet(int tweetId) async {
-      Tweet? tweet =
-          allTweets.where((tweet) => tweet.id == tweetId).toList().firstOrNull;
-      if (tweet != null) {
-        allTweets.remove(tweet);
-        var tweetsAsMap = box.read('tweets');
-        tweetsAsMap.remove(tweet.toJson());
-        await box.remove(tweet.toJson());
-      } else {
-        // ERROR Alert!
-      }
+    } else {
+      // ERROR!
     }
   }
 }
