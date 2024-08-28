@@ -1,5 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_it/get_it.dart';
+import 'package:twitter/data_layer/global.dart';
+import 'package:twitter/model/tweat_model.dart';
 import 'package:twitter/widget/button/add_tweat_button.dart';
 import 'package:twitter/widget/message_block.dart';
 import 'package:twitter/widget/pop/show_add_tweat.dart';
@@ -23,7 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
             showAddTweet(
               context: context,
               controller: addTweatController,
-              onSubmitted: (p0) {},
+              onSubmitted: (p0) {
+                GetIt.I.get<Global>().tweats.add(
+                      TweatModel(
+                        message: addTweatController.text,
+                        id: Random().nextInt(99),
+                      ),
+                    );
+                setState(() {});
+              },
             );
           },
         ),
@@ -39,27 +52,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         body: SafeArea(
-          child: ListView(
-            shrinkWrap: true,
-            children: const [
-              MessageBlock(
-                message: "Hello X",
-              ),
-              MessageBlock(
-                message: "fdsfsdafdsafsdafdsafsdafsdafdsafdsfsdfsdafasdfdsfdsf",
-              ),
-              MessageBlock(
-                message: "Heldsafdasfddslo X",
-              ),
-              MessageBlock(
-                message: "Hellfdasfadsfasdo X",
-              ),
-              MessageBlock(
-                message: "Hello X",
-              ),
-            ],
-          ),
-        ),
+            child: GetIt.I.get<Global>().tweats.isNotEmpty
+                ? ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: GetIt.I.get<Global>().tweats.length,
+                    itemBuilder: (context, index) {
+                      return MessageBlock(
+                        message: GetIt.I.get<Global>().tweats[index].message,
+                      );
+                    },
+                  )
+                : const SizedBox()),
       ),
     );
   }
