@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_app/screens/home_screen.dart';
+import 'package:twitter_app/services/set_up.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setup();
   runApp(const MainApp());
 }
 
