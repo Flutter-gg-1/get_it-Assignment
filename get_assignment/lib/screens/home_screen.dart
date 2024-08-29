@@ -18,45 +18,34 @@ class _HomeScreenState extends State<HomeScreen> {
     final tweetsData = GetIt.I.get<TweetsData>();
     return Scaffold(
       appBar: AppBar(
-        title: const Icon(Icons.arrow_outward),
-        // title: Image.asset("assets/Twitter Logo.png"),
+        title: Image.asset("assets/Twitter Logo.png"),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xff4C9EEB),
-        onPressed: () {
-          context.push(
-            screen: const AddTweets(),
-            onBack: (p0) {
-              if (p0 == true) {
-                setState(() {});
-              }
-            },
-          );
-        },
-        child: const Icon(Icons.add),
-      ),
+          backgroundColor: const Color(0xff4C9EEB),
+          onPressed: () {
+            context.push(
+              screen: const AddTweets(),
+              onBack: (p0) {
+                if (p0 == true) {
+                  setState(() {});
+                }
+              },
+            );
+          },
+          shape: const CircleBorder(),
+          child: Image.asset("assets/Add text icon.png")),
       body: ListView(
         children: tweetsData.allTwets
             .map((tweet) => tweets(
                   text: tweet.title,
                   id: tweet.id,
                   onDelete: () {
-                    setState(() {}); // Update parent UI on delete
+                    setState(() {});
                   },
                 ))
             .toList(),
       ),
-      // Column(
-      //   children: [
-      //from custom widget
-      // const tweets(
-      //   text: "helloo",
-      // ),
-      //from the git
-      // Column(
-      //     children: tweetsData.allTwets
-
     );
   }
 }

@@ -11,8 +11,6 @@ class TweetsData {
     loadTweets();
   }
 
-  // List<String> allTwets2 = [];
-
   addNewTweet({required String tweet}) {
     int id = Random().nextInt(1000);
     while (allTwets.map((e) => e.id).toList().contains(id)) {
@@ -36,27 +34,11 @@ class TweetsData {
     }
   }
 
-  // removeTweet({required int id}) {
-  //   allTwets.removeWhere((element) => element.id == id);
-  //   saveTweet();
-  // }
-
   deleteTweet({required int id}) {
   allTwets.removeWhere((tweet) => tweet.id == id);
   saveTweet();
-  print("Tweet with ID $id deleted");  // Debug statement
-  print(allTwets);  // Check the remaining tweets
+  // print("Tweet with ID $id deleted");  
+  // print(allTwets);  
 }
 
-
-  // deleteTweet({required int id}) {
-  //   TweetModel removedTweet = TweetModel(title: "", id: 0);
-  //   for (var element in allTwets) {
-  //     if (element.id == id) {
-  //       removedTweet = element;
-  //     }
-  //   }
-  //   allTwets.remove(removedTweet);
-  //   saveTweet();
-  // }
 }

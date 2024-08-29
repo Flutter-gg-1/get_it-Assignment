@@ -16,6 +16,5 @@ class TweetModel {
     data['title'] = title;
     data['id'] = id;
     return data;
-    // return {'id': id, 'title': title};
   }
 }
