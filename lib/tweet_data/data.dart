@@ -19,17 +19,16 @@ class TweetData {
   }
 
   deleteTweet({required int id}) {
-    
     tweets.removeAt(id);
     saveTweet();
   }
 
-  //?--------- save all category
+  //?--------- save all tweets
   saveTweet() async {
     await box.write("tweet", tweets);
   }
 
-  //?--------- load all data tasks ands categories
+  //?--------- load all data tweets
 
   loadTask() {
     List<Map<String, dynamic>> tasksSaved =

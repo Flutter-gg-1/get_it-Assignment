@@ -49,7 +49,9 @@ class AddTweets extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+            },
             child: Container(
                 height: 50,
                 width: context.getWidth(),
