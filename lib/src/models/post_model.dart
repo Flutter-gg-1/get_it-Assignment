@@ -11,9 +11,15 @@ class PostModel {
   // Constructor
   PostModel({this.post}) : id = ++_lastId;
 
+  // From JSON conversion method
+  PostModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    post = json['post'];
+  }
+
   // To JSON conversion method
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final data = <String, dynamic>{};
     data['id'] = id;
     data['post'] = post;
     return data;
