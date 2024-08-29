@@ -20,5 +20,7 @@ In this project user can add tweet and delete them.
 
 
 
-## Author:
+## Author
 Rahaf Alghamdi
+
+
