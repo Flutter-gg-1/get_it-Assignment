@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:get_assignment/models/task_model.dart';
-import 'package:get_assignment/widget/tweet_sizebox.dart';
 import 'package:get_storage/get_storage.dart';
 
 class TweetsData {
@@ -36,4 +35,28 @@ class TweetsData {
       }
     }
   }
+
+  // removeTweet({required int id}) {
+  //   allTwets.removeWhere((element) => element.id == id);
+  //   saveTweet();
+  // }
+
+  deleteTweet({required int id}) {
+  allTwets.removeWhere((tweet) => tweet.id == id);
+  saveTweet();
+  print("Tweet with ID $id deleted");  // Debug statement
+  print(allTwets);  // Check the remaining tweets
+}
+
+
+  // deleteTweet({required int id}) {
+  //   TweetModel removedTweet = TweetModel(title: "", id: 0);
+  //   for (var element in allTwets) {
+  //     if (element.id == id) {
+  //       removedTweet = element;
+  //     }
+  //   }
+  //   allTwets.remove(removedTweet);
+  //   saveTweet();
+  // }
 }

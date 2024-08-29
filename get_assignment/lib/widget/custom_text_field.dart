@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_assignment/data_layer/tweets_data.dart';
 import 'package:get_assignment/helper/screen_size.dart';
-import 'package:get_assignment/screens/add_tweets.dart';
 import 'package:get_it/get_it.dart';
 
 class TextToWrite extends StatefulWidget {

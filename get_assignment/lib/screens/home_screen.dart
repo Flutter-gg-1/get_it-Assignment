@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final tweetsData = GetIt.I.get<TweetsData>();
     return Scaffold(
       appBar: AppBar(
         title: const Icon(Icons.arrow_outward),
@@ -35,23 +36,27 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: const Icon(Icons.add),
       ),
-      body: Column(
-        children: [
-          //from custom widget
-          const tweets(
-            text: "helloo",
-          ),
-          //from the git
-          Column(
-              children: GetIt.I
-                  .get<TweetsData>()
-                  .allTwets
-                  .map((e) => tweets(
-                        text: e.title,
-                      ))
-                  .toList()),
-        ],
+      body: ListView(
+        children: tweetsData.allTwets
+            .map((tweet) => tweets(
+                  text: tweet.title,
+                  id: tweet.id,
+                  onDelete: () {
+                    setState(() {}); // Update parent UI on delete
+                  },
+                ))
+            .toList(),
       ),
+      // Column(
+      //   children: [
+      //from custom widget
+      // const tweets(
+      //   text: "helloo",
+      // ),
+      //from the git
+      // Column(
+      //     children: tweetsData.allTwets
+
     );
   }
 }
