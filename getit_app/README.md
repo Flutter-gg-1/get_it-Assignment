@@ -13,8 +13,7 @@ A simple tweeting app that allows users to add and remove tweets. Tweets are sto
   ![delete](https://github.com/user-attachments/assets/9e63fbf9-c220-4e54-a48e-5fc651979932)
 
 
-## Technologies Used
+## dependencies Used
 
-- Flutter
-- Dart
-- GetStorage
+- get_storage
+- get_it
