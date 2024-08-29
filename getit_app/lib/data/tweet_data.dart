@@ -38,4 +38,15 @@ class TweetData {
       }
     }
   }
+// delete function
+void deleteTweet({
+  required String tweet,
+}) {
+  allTweets.removeWhere((element) => element.tweet == tweet); 
+  if (box.hasData(tweet)) {
+    box.remove(tweet); 
+  }
 }
+
+}
+

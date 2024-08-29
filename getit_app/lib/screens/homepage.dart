@@ -5,9 +5,17 @@ import 'package:getit_app/data/tweet_data.dart';
 import 'package:getit_app/widgits/add_tweet_button.dart';
 import 'package:getit_app/widgits/tweet.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
+  
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
 
+class _HomepageState extends State<Homepage> {
+   void refreshTweets() {
+    setState(() {}); // This will rebuild the UI and show the updated list
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,16 +26,20 @@ class Homepage extends StatelessWidget {
         child: Divider(height: 1),
       )
       ),
-      floatingActionButton:  TweetButton(),
+      floatingActionButton:  const TweetButton(),
       body: Center(
         child: ListView(
-          children:  GetIt.I
-                      .get<TweetData>()
-                      .allTweets
-                      .map((e) => Tweet(
-                            tweet: e.tweet,
-                          ))
-                      .toList(),
+          children: GetIt.I
+          .get<TweetData>()
+          .allTweets
+          .map((e) => Tweet(
+                tweet: e.tweet,
+                delete: () {
+                  GetIt.I.get<TweetData>().deleteTweet(tweet: e.tweet);
+                  setState(() {}); 
+                },
+              ))
+    .toList(),
         ),
       ),
     );

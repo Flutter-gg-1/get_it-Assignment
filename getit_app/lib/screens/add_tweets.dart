@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -39,12 +38,12 @@ class _AddTweetsState extends State<AddTweets> {
               IconButton(onPressed: (){
                 if ( controllerweet!.text.isNotEmpty) {
                   TweetModel newTweet = TweetModel(
-                    id: Random().nextInt(999),
                     tweet: controllerweet!.text
                   );
                   GetIt.I.get<TweetData>().addTweet(tweet: newTweet);
-                  print(TweetData().allTweets);
-                  Navigator.pop(context,true);
+                  
+                  Navigator.pop(context);
+                  
                 }
               }, icon: const Icon(Icons.add)),
               const SizedBox(height: 16,),
