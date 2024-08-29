@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get_assignment/helper/nav.dart';
 import 'package:get_assignment/helper/screen_size.dart';
+import 'package:get_assignment/screens/home_screen.dart';
 import 'package:get_assignment/widget/custom_text_field.dart';
 
 class AddTweets extends StatefulWidget {
@@ -17,7 +19,8 @@ class _AddTweetsState extends State<AddTweets> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Icon(Icons.arrow_circle_up_outlined),
+        automaticallyImplyLeading: false,
+        title: Image.asset("assets/Twitter Logo.png"),
         centerTitle: true,
       ),
       body: Column(
@@ -35,13 +38,13 @@ class _AddTweetsState extends State<AddTweets> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all(const Color(0xffE7ECF0))),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push(screen: const HomeScreen());
+                  },
                   child: const Text(
                     "Cancel",
                     style: TextStyle(color: Colors.black),
                   ))),
-
-     
         ],
       ),
     );

@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final tweetsData = GetIt.I.get<TweetsData>();
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Image.asset("assets/Twitter Logo.png"),
         centerTitle: true,
       ),
