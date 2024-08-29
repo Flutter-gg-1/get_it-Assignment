@@ -36,21 +36,13 @@ class _NewTweetScreenState extends State<NewTweetScreen> {
                   ),
                   onFieldSubmitted: (value) {
                     print("Submitted $value");
-                    GetIt.I<TweetData>().addTweet(TweetModel(tweet: tweetController.text));
+                    GetIt.I<TweetData>()
+                        .addTweet(TweetModel(tweet: tweetController.text));
                     print(GetIt.I<TweetData>().localStorage.read('tweets'));
-                    if (tweetController.text.isNotEmpty) {
-                      //Add update function
-
-
-                      setState(() {});
-
-                      print("Tweet added");
-                    }else{
-                      print("Tweet not added");
-                    }
                   },
                   maxLines: 1,
-                  style: const TextStyle(fontSize: 16, color: AppColors.secondary),
+                  style:
+                      const TextStyle(fontSize: 16, color: AppColors.secondary),
                 ),
               ),
               const SizedBox(height: 20),
