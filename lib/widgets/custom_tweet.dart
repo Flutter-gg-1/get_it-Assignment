@@ -38,7 +38,7 @@ class AddTweets extends StatelessWidget {
                       .get<TweetData>()
                       .addNewTweet(tweetInfo: tweetsController.text);
 
-                  Navigator.pop(context);
+                  Navigator.pop(context, true);
                 },
                 icon: const Icon(Icons.send_sharp))
           ],
