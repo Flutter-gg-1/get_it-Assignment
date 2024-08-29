@@ -35,7 +35,7 @@ class _FirstScreenState extends State<FirstScreen> {
         title: Image.asset('assets/Twitter Logo.png'),
       ),
       body: tweets.isNotEmpty
-          ? ListView.builder(
+          ? ListView.separated(
               itemCount: tweets.length,
               itemBuilder: (context, index) {
                 return ListTile(
@@ -47,6 +47,9 @@ class _FirstScreenState extends State<FirstScreen> {
                     },
                   ),
                 );
+              },
+              separatorBuilder: (context, index) {
+                return Divider();
               },
             )
           : Center(child: Text('No tweets available.')),
